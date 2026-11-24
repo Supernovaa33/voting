@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Voting Sederhana</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-badge">E-Voting Sederhana</div>
+      <h1 id="poll-title">Pemilihan Ketua Komunitas 2026</h1>
+      <p class="subtitle">Pilih satu kandidat terbaik menurut Anda. Hasil suara diperbarui secara langsung.</p>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-label">Total Suara</span>
+          <strong id="total-votes">0</strong>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Status Anda</span>
+          <strong id="vote-status" class="status-pending">Belum Memilih</strong>
+        </div>
+        <button id="reset-btn" class="btn btn-secondary" type="button" title="Ulangi voting dari awal">
+          Reset Voting
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="candidates-heading">
+        <div class="section-header">
+          <h2 id="candidates-heading">Daftar Kandidat</h2>
+          <button id="toggle-add-btn" class="btn btn-outline" type="button">+ Tambah Kandidat</button>
+        </div>
+
+        <form id="add-candidate-form" class="add-form hidden">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="candidate-name">Nama Kandidat</label>
+              <input id="candidate-name" type="text" placeholder="Contoh: Budi Santoso" required maxlength="50" />
+            </div>
+            <div class="form-group">
+              <label for="candidate-tagline">Visi / Tagline Singkat</label>
+              <input id="candidate-tagline" type="text" placeholder="Contoh: Transparan, aktif, dan kolaboratif" required maxlength="120" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Simpan Kandidat</button>
+            <button type="button" id="cancel-add-btn" class="btn btn-ghost">Batal</button>
+          </div>
+        </form>
+
+        <div id="candidates-grid" class="candidates-grid"></div>
+      </section>
+
+      <section class="results-section" aria-labelledby="results-heading">
+        <h2 id="results-heading">Hasil Perolehan Suara</h2>
+        <div id="results-list" class="results-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
